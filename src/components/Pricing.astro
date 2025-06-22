@@ -1,74 +1,111 @@
 ---
 const pricingPlans = [
-    {
-        name: 'Hatchling',
-        price: '$49',
-        period: 'per week',
-        features: [
-            '1 Chameleon of your choice',
-            'Complete Care-Kit',
-            '24/7 Vet Support',
-            'Cancel Anytime'
-        ],
-        buttonText: 'Rent Weekly',
-        isFeatured: false,
-    },
-    {
-        name: 'Adult',
-        price: '$149',
-        period: 'per month',
-        features: [
-            '1 Chameleon of your choice',
-            'Complete Care-Kit',
-            '24/7 Vet Support',
-            'Free Delivery & Pickup',
-            'Monthly Chameleon Swap'
-        ],
-        buttonText: 'Rent Monthly',
-        isFeatured: true,
-    },
-    {
-        name: 'Chameleon King',
-        price: 'Custom',
-        period: 'for events',
-        features: [
-            'Multiple Chameleons',
-            'On-site Handler',
-            'Custom Habitat Design',
-            'Perfect for parties & shoots',
-            'Priority Booking'
-        ],
-        buttonText: 'Contact Us',
-        isFeatured: false,
-    }
+  {
+    name: "Mini-Miet-Molch",
+    price: "€49",
+    period: "pro Woche",
+    features: [
+      "1 Chamäleon deiner Wahl",
+      "Rundum-Sorglos-Paket",
+      "Tierarzt-Chat rund um die Uhr erreichbar",
+      "Jederzeit kündbar",
+    ],
+    buttonText: "Jetzt mieten",
+    isFeatured: false,
+  },
+  {
+    name: "Couch-Chamäleon (meist gebucht)",
+    price: "€149",
+    period: "pro Monat",
+    features: [
+      "1 Chamäleon deiner Wahl",
+      "Rundum-Sorglos-Paket",
+      "Kostenloser Bring- und Abholservice",
+      "Tierarzt-Chat rund um die Uhr erreichbar",
+      "Monatlicher Chamäleon-Tausch",
+    ],
+    buttonText: "Jetzt mieten",
+    isFeatured: true,
+  },
+  {
+    name: "Edel-Echsen-Erlebnis",
+    price: "Anfrage",
+    period: "für Events",
+    features: [
+      "Mehrere Chamäleons",
+      "Betreuer vor Ort",
+      "Terrarien im Corporate Design",
+      "Perfekt für Firmen-Events & Fotoshootings",
+      "Priorisierte Buchung",
+    ],
+    buttonText: "Kontaktiere uns",
+    isFeatured: false,
+  },
 ];
 ---
-<section id="pricing" class="py-20">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-extrabold">Flexible Plans for Everyone</h2>
-            <p class="text-lg text-gray-400 mt-2">Choose the plan that's right for you. No hidden fees.</p>
-        </div>
 
-        <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {pricingPlans.map(plan => (
-                <div class:list={['bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col', { 'border-2 border-green-500 transform scale-105': plan.isFeatured }]}>
-                    <h3 class="text-2xl font-bold text-center">{plan.name}</h3>
-                    <p class="text-center text-gray-400 mt-1">{plan.period}</p>
-                    <p class="text-5xl font-extrabold text-center my-6 text-green-400">{plan.price}</p>
-                    <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                        {plan.features.map(feature => (
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                {feature}
-                            </li>
-                        ))}
-                    </ul>
-                    <a href="#" class:list={['w-full text-center font-semibold py-3 rounded-lg transition-all', { 'bg-green-500 hover:bg-green-600 text-white': plan.isFeatured, 'bg-gray-700 hover:bg-gray-600 text-white': !plan.isFeatured }]}>
-                        {plan.buttonText}
-                    </a>
-                </div>
-            ))}
-        </div>
+<section id="pricing" class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold">Unsere bunten Mietmodelle</h2>
+      <p class="text-lg text-gray-400 mt-2">
+        Wähle einfach das passende Abo. Ohne versteckte Kosten.
+      </p>
     </div>
-</section> 
+
+    <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {
+        pricingPlans.map((plan) => (
+          <div
+            class:list={[
+              "bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col",
+              {
+                "border-2 border-green-500 transform scale-105":
+                  plan.isFeatured,
+              },
+            ]}
+          >
+            <h3 class="text-2xl font-bold text-center">{plan.name}</h3>
+            <p class="text-center text-gray-400 mt-1">{plan.period}</p>
+            <p class="text-5xl font-extrabold text-center my-6 text-green-400">
+              {plan.price}
+            </p>
+            <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
+              {plan.features.map((feature) => (
+                <li class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-green-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#"
+              class:list={[
+                "w-full text-center font-semibold py-3 rounded-lg transition-all",
+                {
+                  "bg-green-500 hover:bg-green-600 text-white": plan.isFeatured,
+                  "bg-gray-700 hover:bg-gray-600 text-white": !plan.isFeatured,
+                },
+              ]}
+            >
+              {plan.buttonText}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

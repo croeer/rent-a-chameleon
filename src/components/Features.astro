@@ -1,41 +1,52 @@
 ---
 const features = [
-    {
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
-        title: 'Wide Variety',
-        description: 'Choose from a diverse collection of chameleons. From Panther to Veiled, we have the perfect colorful friend for you.'
-    },
-    {
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`,
-        title: 'Ethical & Humane',
-        description: 'Our chameleons are our family. They are raised in state-of-the-art habitats with the utmost care and love.'
-    },
-    {
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>`,
-        title: 'Complete Care-Kit',
-        description: 'You get everything you need: a spacious terrarium, food, supplements, and a comprehensive care guide.'
-    },
-    {
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`,
-        title: 'Flexible Rentals',
-        description: 'Rent for a day, a week, or a month. We offer flexible plans to fit your schedule and needs. No long-term commitments!'
-    }
-]
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+    title: "Breites Reptilien-Spektrum",
+    description:
+      "Von Panther bis Veiled – bei uns findest du den perfekten Farbklecks fürs Wohnzimmer.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`,
+    title: "Ethik & Liebe inklusive",
+    description:
+      "Unsere Chamäleons sind keine Massenware. Sie leben in VIP-Terrarien und hören jeden Abend eine Gute-Nacht-Geschichte.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>`,
+    title: "Komplett-Sorglos-Paket",
+    description:
+      "Terrarium, Futter, Wärmelampe, Anleitung – alles dabei. Du bringst nur die Begeisterung mit.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`,
+    title: "Flexible Mietzeiten",
+    description:
+      "Ein Tag? Eine Woche? Ein Monat? Du entscheidest – Verpflichtung war gestern.",
+  },
+];
 ---
+
 <section id="features" class="py-20">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-extrabold">Why Rent a Chameleon?</h2>
-            <p class="text-lg text-gray-400 mt-2">Everything you need for a colorful experience.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map(feature => (
-                <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-                    <div class="flex justify-center mb-4" set:html={feature.icon} />
-                    <h3 class="text-2xl font-bold mb-2">{feature.title}</h3>
-                    <p class="text-gray-400">{feature.description}</p>
-                </div>
-            ))}
-        </div>
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold">Warum ein Chamäleon mieten?</h2>
+      <p class="text-lg text-gray-400 mt-2">
+        Erlebe die Freude, ein buntes Wesen an deiner Seite zu haben – ohne
+        langfristige Verpflichtung. Ideal für Partys, Fotoshootings oder einfach
+        nur, weil du’s kannst.
+      </p>
     </div>
-</section> 
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        features.map((feature) => (
+          <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+            <div class="flex justify-center mb-4" set:html={feature.icon} />
+            <h3 class="text-2xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-400">{feature.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
