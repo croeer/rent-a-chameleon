@@ -2,6 +2,7 @@
 const pricingPlans = [
   {
     name: "Mini-Miet-Molch",
+    urlname: "1",
     price: "€49",
     period: "pro Woche",
     features: [
@@ -12,9 +13,11 @@ const pricingPlans = [
     ],
     buttonText: "Jetzt mieten",
     isFeatured: false,
+    type: "buy",
   },
   {
     name: "Couch-Chamäleon (meist gebucht)",
+    urlname: "2",
     price: "€149",
     period: "pro Monat",
     features: [
@@ -26,6 +29,7 @@ const pricingPlans = [
     ],
     buttonText: "Jetzt mieten",
     isFeatured: true,
+    type: "buy",
   },
   {
     name: "Edel-Echsen-Erlebnis",
@@ -40,6 +44,7 @@ const pricingPlans = [
     ],
     buttonText: "Kontaktiere uns",
     isFeatured: false,
+    type: "contact",
   },
 ];
 ---
@@ -91,18 +96,29 @@ const pricingPlans = [
                 </li>
               ))}
             </ul>
-            <a
-              href="#"
-              class:list={[
-                "w-full text-center font-semibold py-3 rounded-lg transition-all",
-                {
-                  "bg-green-500 hover:bg-green-600 text-white": plan.isFeatured,
-                  "bg-gray-700 hover:bg-gray-600 text-white": !plan.isFeatured,
-                },
-              ]}
-            >
-              {plan.buttonText}
-            </a>
+            {plan.type === "buy" ? (
+              <a
+                href={`/buy?plan=${encodeURIComponent(plan.urlname ?? plan.name)}`}
+                class:list={[
+                  "w-full text-center font-semibold py-3 rounded-lg transition-all",
+                  {
+                    "bg-green-500 hover:bg-green-600 text-white":
+                      plan.isFeatured,
+                    "bg-gray-700 hover:bg-gray-600 text-white":
+                      !plan.isFeatured,
+                  },
+                ]}
+              >
+                {plan.buttonText}
+              </a>
+            ) : (
+              <a
+                href="mailto:info@miet-echse.de?subject=Edel-Echsen-Erlebnis%20Anfrage"
+                class="w-full text-center font-semibold py-3 rounded-lg transition-all bg-gray-700 hover:bg-gray-600 text-white"
+              >
+                {plan.buttonText}
+              </a>
+            )}
           </div>
         ))
       }
