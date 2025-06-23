@@ -11,12 +11,35 @@ import Layout from "../layouts/Layout.astro";
         <a href="/" class="text-2xl font-bold">
           <span class="text-green-400">Miet</span>-Echse.de
         </a>
-        <a
-          href="/"
-          class="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-all"
-        >
-          &larr; Zurück
-        </a>
+        <div class="flex items-center gap-4">
+          <a href="/cart" class="relative group">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-green-400 group-hover:text-green-300 transition-colors"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m13-9l2 9m-5 0a2 2 0 11-4 0m4 0a2 2 0 11-4 0"
+              ></path>
+            </svg>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full px-2 py-0.5 font-bold"
+              >0</span
+            >
+          </a>
+          <a
+            href="/"
+            class="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-all"
+          >
+            &larr; Zurück
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -26,124 +49,94 @@ import Layout from "../layouts/Layout.astro";
         Unsere Chamäleons
       </h1>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div
-          class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center"
-        >
-          <img
-            src="/pascal.jpg"
-            alt="Pascal das Pantherchamäleon"
-            class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
-          />
-          <h2 class="text-2xl font-bold mb-1">Pascal</h2>
-          <p class="text-green-300 mb-2">Pantherchamäleon</p>
-          <p class="text-gray-300 text-center text-sm mb-4">
-            Kann in Sekunden die Farbe wechseln und liebt es, auf Ästen zu
-            chillen.
-          </p>
-          <a
-            href="mailto:info@miet-echse.de?subject=Buchungsanfrage%20Pascal"
-            class="mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
-            >Jetzt buchen</a
-          >
-        </div>
-        <div
-          class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center"
-        >
-          <img
-            src="/karma.jpg"
-            alt="Karma das Jemenchamäleon"
-            class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
-          />
-          <h2 class="text-2xl font-bold mb-1">Karma</h2>
-          <p class="text-green-300 mb-2">Jemenchamäleon</p>
-          <p class="text-gray-300 text-center text-sm mb-4">
-            Hat einen beeindruckenden Helm und kann beide Augen unabhängig
-            voneinander bewegen.
-          </p>
-          <a
-            href="mailto:info@miet-echse.de?subject=Buchungsanfrage%20Karma"
-            class="mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
-            >Jetzt buchen</a
-          >
-        </div>
-        <div
-          class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center"
-        >
-          <img
-            src="/luna.jpg"
-            alt="Luna das Teppichchamäleon"
-            class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
-          />
-          <h2 class="text-2xl font-bold mb-1">Luna</h2>
-          <p class="text-green-300 mb-2">Teppichchamäleon</p>
-          <p class="text-gray-300 text-center text-sm mb-4">
-            Meisterin der Tarnung und liebt es, sich in bunten Blättern zu
-            verstecken.
-          </p>
-          <a
-            href="mailto:info@miet-echse.de?subject=Buchungsanfrage%20Luna"
-            class="mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
-            >Jetzt buchen</a
-          >
-        </div>
-        <div
-          class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center"
-        >
-          <img
-            src="/spike.jpg"
-            alt="Spike das Dreihornchamäleon"
-            class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
-          />
-          <h2 class="text-2xl font-bold mb-1">Spike</h2>
-          <p class="text-green-300 mb-2">Dreihornchamäleon</p>
-          <p class="text-gray-300 text-center text-sm mb-4">
-            Hat drei Hörner und sieht aus wie ein Mini-Dino. Sehr fotogen!
-          </p>
-          <a
-            href="mailto:info@miet-echse.de?subject=Buchungsanfrage%20Spike"
-            class="mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
-            >Jetzt buchen</a
-          >
-        </div>
-        <div
-          class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center"
-        >
-          <img
-            src="/mango.jpg"
-            alt="Mango das Madagaskar-Chamäleon"
-            class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
-          />
-          <h2 class="text-2xl font-bold mb-1">Mango</h2>
-          <p class="text-green-300 mb-2">Madagaskar-Chamäleon</p>
-          <p class="text-gray-300 text-center text-sm mb-4">
-            Liebt tropische Temperaturen und ist ein echter Sonnenanbeter.
-          </p>
-          <a
-            href="mailto:info@miet-echse.de?subject=Buchungsanfrage%20Mango"
-            class="mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
-            >Jetzt buchen</a
-          >
-        </div>
-        <div
-          class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center"
-        >
-          <img
-            src="/zazu.jpg"
-            alt="Zazu das Zwergchamäleon"
-            class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
-          />
-          <h2 class="text-2xl font-bold mb-1">Zazu</h2>
-          <p class="text-green-300 mb-2">Zwergchamäleon</p>
-          <p class="text-gray-300 text-center text-sm mb-4">
-            Klein, aber oho! Zazu ist flink und neugierig.
-          </p>
-          <a
-            href="mailto:info@miet-echse.de?subject=Buchungsanfrage%20Zazu"
-            class="mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
-            >Jetzt buchen</a
-          >
-        </div>
+        {
+          [
+            {
+              name: "Pascal",
+              species: "Pantherchamäleon",
+              img: "/pascal.jpg",
+              desc: "Kann in Sekunden die Farbe wechseln und liebt es, auf Ästen zu chillen.",
+            },
+            {
+              name: "Karma",
+              species: "Jemenchamäleon",
+              img: "/karma.jpg",
+              desc: "Hat einen beeindruckenden Helm und kann beide Augen unabhängig voneinander bewegen.",
+            },
+            {
+              name: "Luna",
+              species: "Teppichchamäleon",
+              img: "/luna.jpg",
+              desc: "Meisterin der Tarnung und liebt es, sich in bunten Blättern zu verstecken.",
+            },
+            {
+              name: "Spike",
+              species: "Dreihornchamäleon",
+              img: "/spike.jpg",
+              desc: "Hat drei Hörner und sieht aus wie ein Mini-Dino. Sehr fotogen!",
+            },
+            {
+              name: "Mango",
+              species: "Madagaskar-Chamäleon",
+              img: "/mango.jpg",
+              desc: "Liebt tropische Temperaturen und ist ein echter Sonnenanbeter.",
+            },
+            {
+              name: "Zazu",
+              species: "Zwergchamäleon",
+              img: "/zazu.jpg",
+              desc: "Klein, aber oho! Zazu ist flink und neugierig.",
+            },
+          ].map((c) => (
+            <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
+              <img
+                src={c.img}
+                alt={`${c.name} das ${c.species}`}
+                class="w-40 h-40 object-cover rounded-full mb-4 border-4 border-green-400"
+              />
+              <h2 class="text-2xl font-bold mb-1">{c.name}</h2>
+              <p class="text-green-300 mb-2">{c.species}</p>
+              <p class="text-gray-300 text-center text-sm mb-4">{c.desc}</p>
+              <div class="flex gap-2 w-full">
+                <a
+                  href={`mailto:info@miet-echse.de?subject=Buchungsanfrage%20${encodeURIComponent(c.name)}`}
+                  class="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg shadow transition-all text-center"
+                >
+                  Jetzt buchen
+                </a>
+                <button
+                  class="flex-1 bg-gray-700 hover:bg-green-500 hover:text-white text-green-300 font-semibold px-4 py-2 rounded-lg shadow transition-all text-center add-to-cart"
+                  data-name={c.name}
+                  data-img={c.img}
+                  data-species={c.species}
+                >
+                  In den Warenkorb
+                </button>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
+    <script type="module">
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        document.getElementById("cart-count").textContent = cart.length;
+      }
+      updateCartCount();
+      document.querySelectorAll(".add-to-cart").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const name = btn.dataset.name;
+          const img = btn.dataset.img;
+          const species = btn.dataset.species;
+          let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+          if (!cart.find((item) => item.name === name)) {
+            cart.push({ name, img, species });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+          }
+        });
+      });
+    </script>
   </section>
 </Layout>
