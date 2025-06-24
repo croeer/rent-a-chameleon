@@ -98,7 +98,7 @@ const pricingPlans = [
             </ul>
             {plan.type === "buy" ? (
               <a
-                href={`/buy?plan=${encodeURIComponent(plan.urlname ?? plan.name)}`}
+                href={`/buy/${encodeURIComponent(plan.urlname ?? plan.name)}`}
                 class:list={[
                   "w-full text-center font-semibold py-3 rounded-lg transition-all",
                   {

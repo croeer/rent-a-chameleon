@@ -1,41 +1,40 @@
 ---
-export const prerender = false;
-import Layout from "../layouts/Layout.astro";
-const plans = {
-  "1": {
-    name: "Mini-Miet-Molch",
-    price: "€49",
-    period: "pro Woche",
-    features: [
-      "1 Chamäleon deiner Wahl",
-      "Rundum-Sorglos-Paket",
-      "Tierarzt-Chat rund um die Uhr erreichbar",
-      "Jederzeit kündbar",
-    ],
-  },
-  "2": {
-    name: "Couch-Chamäleon",
-    price: "€149",
-    period: "pro Monat",
-    features: [
-      "1 Chamäleon deiner Wahl",
-      "Rundum-Sorglos-Paket",
-      "Kostenloser Bring- und Abholservice",
-      "Tierarzt-Chat rund um die Uhr erreichbar",
-      "Monatlicher Chamäleon-Tausch",
-    ],
-  },
-};
-const params = Astro.url.searchParams;
-console.log(params);
-const planKey = params.get("plan");
+import Layout from "../../layouts/Layout.astro";
 
-const plan =
-  planKey && Object.prototype.hasOwnProperty.call(plans, planKey)
-    ? plans[planKey as keyof typeof plans]
-    : plans[Object.keys(plans)[0] as keyof typeof plans];
+export async function getStaticPaths() {
+  const plans = {
+    "1": {
+      name: "Mini-Miet-Molch",
+      price: "€49",
+      period: "pro Woche",
+      features: [
+        "1 Chamäleon deiner Wahl",
+        "Rundum-Sorglos-Paket",
+        "Tierarzt-Chat rund um die Uhr erreichbar",
+        "Jederzeit kündbar",
+      ],
+    },
+    "2": {
+      name: "Couch-Chamäleon",
+      price: "€149",
+      period: "pro Monat",
+      features: [
+        "1 Chamäleon deiner Wahl",
+        "Rundum-Sorglos-Paket",
+        "Kostenloser Bring- und Abholservice",
+        "Tierarzt-Chat rund um die Uhr erreichbar",
+        "Monatlicher Chamäleon-Tausch",
+      ],
+    },
+  };
 
-console.log("planKey:", planKey);
+  return (Object.keys(plans) as Array<keyof typeof plans>).map((plan) => ({
+    params: { plan },
+    props: { plan: plans[plan] },
+  }));
+}
+
+const { plan } = Astro.props;
 ---
 
 <Layout title="Jetzt mieten | Miet-Echse.de">
@@ -58,17 +57,42 @@ console.log("planKey:", planKey);
   <section class="py-20 bg-gray-900 min-h-screen">
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-extrabold text-center mb-8 text-green-400">
-        Jetzt abonnieren: {plan.name}
+        Jetzt abonnieren: {plan ? plan.name : "Unbekannter Plan"}
       </h1>
-      <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mb-8">
-        <h2 class="text-2xl font-bold mb-2">
-          {plan.price}
-          <span class="text-base font-normal text-gray-400">{plan.period}</span>
-        </h2>
-        <ul class="list-disc list-inside text-gray-300 mb-4">
-          {plan.features.map((f) => <li>{f}</li>)}
-        </ul>
-      </div>
+      {
+        plan ? (
+          <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mb-8">
+            <h2 class="text-3xl font-bold mb-2 text-green-300">{plan.name}</h2>
+            <p class="text-xl text-green-400 font-extrabold mb-1">{plan.price}</p>
+            <p class="text-gray-400 mb-4">{plan.period}</p>
+            <ul class="list-none space-y-2 mb-2">
+              {plan.features.map((feature) => (
+                <li class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-green-400 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mb-8 text-red-400">
+            Plan nicht gefunden.
+          </div>
+        )
+      }
       <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold mb-4 text-green-300">Deine Daten</h2>
         <form id="buy-form" class="space-y-4">
